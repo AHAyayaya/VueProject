@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0,minimal-ui:ios">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>03-v-for和v-bind结合使用</title>
+  <style>
+    .active{
+      color: red;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <ul>
+      <li :class="{active : currentIndex == index }" v-for="(item,index) in movies" @click="changeColor(index)">{{index}}--{{item}}</li>
+    </ul>
+  </div>
+
+  <script src="../../js/vue.js"></script>
+  <script>
+    var vm = new Vue({
+      el: '#app',
+      data: {
+        movies: ['镇魂街','一人之下','进击的巨人','刺客伍六七'],
+        currentIndex: 0
+      },
+      methods: {
+        changeColor(index){
+          this.currentIndex = index
+        }
+      }
+    });
+  </script>
+</body>
+
+</html>

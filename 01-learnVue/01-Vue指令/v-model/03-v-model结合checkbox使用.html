@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0,minimal-ui:ios">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>03-v-model结合checkbox使用</title>
+</head>
+
+<body>
+  <div id="app">
+    <!-- 1.checkbox单选框 -->
+    <!-- <label for="agree">
+      <input type="checkbox" id="agree" v-model="isAgree">同意协议
+    </label>
+    <h2>你选择的是：{{isAgree}}</h2>
+    <button :disabled="!isAgree">下一步</button> -->
+    <!-- 2.checkbox多选框 -->
+    <input type="checkbox" value="1" v-model="num">1
+    <input type="checkbox" value="2" v-model="num">2
+    <input type="checkbox" value="3" v-model="num">3
+    <input type="checkbox" value="4" v-model="num">4
+    <h2>你选择的是：{{num}}</h2>
+  </div>
+
+  <script src="../../js/vue.js"></script>
+  <script>
+    var vm = new Vue({
+      el: '#app',
+      data: {
+        isAgree: false,//单选
+        num: [],//多选
+         
+      },
+      methods: {}
+    });
+  </script>
+</body>
+
+</html>

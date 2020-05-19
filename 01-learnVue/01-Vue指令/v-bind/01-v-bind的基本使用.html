@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0,minimal-ui:ios">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>01-v-bind的基本使用</title>
+</head>
+<body>
+<div id="app">
+  <img :src="img" alt="">
+</div>
+
+
+<script src="../../js/vue.js"></script>
+<script>
+ var vm = new Vue({
+  el:'#app',
+  data:{
+    img: 'https://cn.vuejs.org/images/logo.png'
+  },
+  methods:{}
+ }) ;
+ </script>
+</body>
+</html>

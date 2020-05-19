@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0,minimal-ui:ios">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>04-v-model结合select使用</title>
+</head>
+
+<body>
+  <div id="app">
+    <!-- 1.选择一个 -->
+    <select name="abc" v-model="num"> 
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+    </select>
+    <h2>你选择的是：{{num}}</h2>
+    
+    <!-- 2.选择多个 -->
+    <select name="abc" v-model="nums" multiple> 
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+    </select>
+    <h2>你选择的是：{{nums}}</h2>
+  </div>
+
+  <script src="../../js/vue.js"></script>
+  <script>
+    var vm = new Vue({
+      el: '#app',
+      data: {
+        num: '1',
+        nums:[]
+      },
+      methods: {}
+    });
+  </script>
+</body>
+
+</html>
