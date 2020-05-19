@@ -6,20 +6,41 @@
   <meta name="viewport"
     content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0,minimal-ui:ios">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
+  <title>全局组件和局部组件</title>
 </head>
 
 <body>
   <div id="app">
-
+    <cpn></cpn>
+    <jcpn></jcpn>
+    <jcpn></jcpn>
+    <jcpn></jcpn>
   </div>
 
   <script src="../js/vue.js"></script>
   <script>
+    // 1.创建组件构造器cpnC
+    const cpnC = Vue.extend({
+      template: `
+        <div>
+          <h2>我是标题</h2>
+          <p>我是内容</p>
+        </div>
+            `
+    })
+    // 2.注册组件(这种方式是全局组件，可以在多个Vue实例下使用)
+    // Vue.component('使用组件时的标签名','上面创建的组件构造器cpnC')
+    Vue.component('cpn',cpnC)
+
     var vm = new Vue({
       el: '#app',
       data: {},
-      methods: {}
+      methods: {},
+      //局部组件
+      components:{
+        // 使用组件时的标签名：上面创建的组件构造器cpnC
+        jcpn: cpnC
+      }
     });
   </script>
 </body>

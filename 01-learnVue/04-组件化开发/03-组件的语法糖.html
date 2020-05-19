@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0,minimal-ui:ios">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>03-组件的语法糖</title>
+</head>
+
+<body>
+  <div id="app">
+    <cpn></cpn>
+    <cpn2></cpn2>
+  </div>
+
+  <script src="../js/vue.js"></script>
+  <script>
+    //语法糖
+    // 1.创建组件构造器cpnC
+    // const cpnC = Vue.extend()
+    // 2.注册组件(这种方式是全局组件，可以在多个Vue实例下使用)
+    // Vue.component('使用组件时的标签名','上面创建的组件构造器cpnC')
+    Vue.component('cpn', {
+      template: `
+        <div>
+          <h2>我是标题</h2>
+          <p>我是内容</p>
+        </div>
+            `
+    })
+
+    var vm = new Vue({
+      el: '#app',
+      data: {},
+      methods: {},
+      components: {
+        'cpn2': {
+          template: `
+            <div>
+              <h2>我是标题</h2>
+              <p>我是内容</p>
+            </div>
+          `
+        }
+      }
+    });
+  </script>
+</body>
+
+</html>

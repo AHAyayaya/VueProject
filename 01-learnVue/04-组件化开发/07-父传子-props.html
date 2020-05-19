@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0,minimal-ui:ios">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>07-父传子-props</title>
+</head>
+
+<body>
+  <div id="app">
+    <cpn :cnums="nums"></cpn>
+  </div>
+
+  <template id="cpn">
+    <div>
+      <ul>
+        <li v-for="item in cnums">{{item}}</li>
+      </ul>
+      <h2>{{cmsg}}</h2>
+    </div>
+  </template>
+
+  <script src="../js/vue.js"></script>
+  <script>
+    //父传子：props
+    const cpn = {
+      template: '#cpn',
+      // props:['cnums']
+      props: {
+      //1.类型限制
+        // cnums: Array,
+        // cmsg: String
+      //2.提供一些默认值
+        cmsg:{
+          type: String,
+          default: 'aaaaaa'
+        }
+      }
+      
+    }
+
+    const app = new Vue({
+      el: '#app',
+      data: {
+        nums: [1, 2, 3, 4],
+        msg: '啦啦啦'
+      },
+      methods: {},
+      components: {
+        cpn
+      }
+    });
+  </script>
+</body>
+
+</html>

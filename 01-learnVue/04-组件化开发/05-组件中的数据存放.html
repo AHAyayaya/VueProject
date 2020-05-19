@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0,minimal-ui:ios">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>04-组件模板的分离写法</title>
+</head>
+
+<body>
+  <div id="app">
+    <cpn></cpn>
+  </div>
+
+
+  <!-- 在template中写 -->
+  <template id="cpn1">
+    <div>
+      <!-- 组件不能直接拿Vue实例中的数据，Vue组件有自己存放数据的地方 -->
+      <h2>{{title}}</h2>
+      <p>我是内容</p>
+    </div>
+  </template>
+
+  <!-- 在script中写 -->
+  <!-- <script type="text/x-template" id="cpn1">
+    <div>
+      <h2>我是在script标签中的模板</h2>
+      <p>我是内容</p>
+    </div>
+  </script> -->
+
+  <script src="../js/vue.js"></script>
+  <script>
+    Vue.component('cpn', {
+      template: '#cpn1',
+      data(){
+        return{
+          title: 123
+        }
+      }
+    })
+
+    var vm = new Vue({
+      el: '#app',
+      data: {},
+      methods: {}
+    });
+  </script>
+</body>
+
+</html>
